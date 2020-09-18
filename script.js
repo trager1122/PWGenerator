@@ -1,70 +1,74 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var lcLetters= "abcdefghijklmnopqrstuvwxyz";
-var capLetters="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var capLetters= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers= "0123456789";
-var specChars= " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-var possChars= "";
+var specChars= "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 
-function generatePassword(lcLetters, capLetters, numbers, specChars, possChars){
+function generatePassword(){
+   
+    var possible= "";
+
     // Number of Characters Prompt and Criteria Validation
-    var numChars= prompt("What length of characters would you like your new password? (min of 8 and no more than 128)");
-    if (numChars <= 7 && numChars >= 129){
-        numChars= prompt("Invalid entry. What length of characters would you like your new password? ( Remember: minimum of 8 and no more than 128)");
-        }
-    console.log(numChars);
+    var length = parseInt(prompt("What length of characters would you like your new password? (min of 8 and no more than 128)"));
+   
+    if (length < 8 || length > 128){
+        length = prompt("Invalid entry. What length of characters would you like your new password? ( Remember: minimum of 8 and no more than 128)");
+        }   
+    console.log(length);
 
     // Inclusion of lowercase letters prompt and validation
     var critLcLetters= prompt("Would you like lowercase letters in your new password? (y/n)");
-    if (critLcLetters != 'y' && critLcLetters != 'n'){
+    if (critLcLetters === "y"){
+        possible += lcLetters;
+       } else if (critLcLetters != "n"){
         critLcLetters= prompt ("Invalid entry. Would you like lowercase letters in your new password? (y/n)");
-        }
-    else if (critLcLetters === 'y'){
-        {possChars += lcLetters;}
     }
-    console.log(possChars);
+    console.log(critLcLetters);
+    console.log(possible);
 
     // Inclusion of capital letters prompt and validation
     var critCapLetters= prompt("Would you like capital letters in your new password? (y/n)");
-    if (critCapLetters != 'y' && critCapLetters != 'n'){
-        critCapLetters= prompt ("Invalid entry. Would you like capital letters in your new password? (y/n)");
-        }
-    else if (critCapLetters === 'y'){
-        possChars += capLetters;
+    if (critCapLetters === "y"){
+       possible += capLetters;
+      } else if (critCapLetters != "n"){
+      critCapLetters= prompt("Invalid entry. Would you like capital letters in your new password? (y/n)");
     }
-    console.log(possChars);
+    console.log(critCapLetters);
+    console.log(possible);
 
     // Inclusion of numbers prompt and validation
     var critNumbers=prompt("Would you like numbers in your new password? (y/n)");
-    if (critNumbers != 'y' && critNumbers != 'n'){
-        critNumbers= prompt ("Invalid entry. Would you like numbers in your new password? (y/n)");
-        }
-    else if (critNumbers=== 'y'){
-        possChars += numbers;
-    }
-    console.log(possChars);
+    if (critNumbers === "y"){
+       possible += numbers;
+       } else if (critNumbers != "n"){
+        critNumbers=prompt("Invalid entry.  Would you like numbers in your new password? (y/n)")
+       }
+    console.log(critCapLetters);
+    console.log(possible);
 
+    //Inclusion of special characters prompt and validation
     var critSpecChars=prompt("Would you like to include special characters such as !, ?, # in your new password? (y/n)");
-    if (critSpecChars != 'y' || critSpecCharsumbers != 'n'){
-        critSpecChars= prompt ("Invalid entry. Would you like to include special characters in your new password? (y/n)");
-        }
-    else if (critNumbers=== 'y'){
-        possChars += specChars;
-    }
-    console.log(possChars);
+    if (critSpecChars === "y"){
+        possible += specChars;
+    } else if (critSpecChars != "n"){
+        critSpecChars=prompt ("Invalid entry. Would you like to include special characters in your new password? (y/n)");
+       }       
+    console.log(critSpecChars);
+    console.log(possible);
 
     // Password Randomization
     var pwGen = "";
-    for (var i = 0; i < 5; i++)
-    pwGen += possChars.charAt(Math.floor(Math.random() * possChars.length));
-    console.log (pwGen);
+    for (var i = 0; i < length; i++)
+        pwGen += possible.charAt(Math.floor(Math.random() * possible.length));
+    console.log(pwGen);
 }
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  
   passwordText.value = password;
 
 }
