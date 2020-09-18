@@ -56,7 +56,7 @@ function generatePassword(lcLetters, capLetters, numbers, specChars, possChars){
     // Password Randomization
     var pwGen = "";
     for (var i = 0; i < 5; i++)
-    pwGen += possChars.charAt(Math.floor(Math.random() * possible.length));
+    pwGen += possChars.charAt(Math.floor(Math.random() * possChars.length));
     console.log (pwGen);
 }
 
