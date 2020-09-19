@@ -8,6 +8,7 @@ var specChars= "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 function generatePassword(){
    
     var possible= "";
+    var pwGen = "";
 
     // Number of Characters Prompt and Criteria Validation
     var length = parseInt(prompt("What length of characters would you like your new password? (min of 8 and no more than 128)"));
@@ -58,10 +59,11 @@ function generatePassword(){
     console.log(possible);
 
     // Password Randomization
-    var pwGen = "";
-    for (var i = 0; i < length; i++)
+    for (var i = 0; i < length; i++){
         pwGen += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
     console.log(pwGen);
+    return pwGen;
 }
 
 // Write password to the #password input
