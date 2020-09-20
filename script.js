@@ -20,8 +20,8 @@ function generatePassword(){
 
     // Inclusion of lowercase letters prompt and validation
     var critLcLetters= prompt("Would you like lowercase letters in your new password? (y/n)");
-    while (critLcLetters != "y" || critLcLetters != "n"){
-        critLcLetters= prompt("Invalid entry. Would you like lowercase letters in your new password? (y/n)");
+    while (critLcLetters !== "y" && critLcLetters !== "n"){
+        critLcLetters = prompt("Invalid entry. Would you like lowercase letters in your new password? (y/n)");
     }
     if (critLcLetters === "y"){
         possible += lcLetters;
@@ -31,7 +31,7 @@ function generatePassword(){
 
     // Inclusion of capital letters prompt and validation
     var critCapLetters= prompt("Would you like capital letters in your new password? (y/n)");
-    while (critCapLetters != "y" || critCapLetters != "n"){
+    while (critCapLetters != "y" && critCapLetters != "n"){
       critCapLetters= prompt("Invalid entry. Would you like capital letters in your new password? (y/n)");
     }
     if (critCapLetters === "y"){
@@ -42,7 +42,7 @@ function generatePassword(){
 
     // Inclusion of numbers prompt and validation
     var critNumbers=prompt("Would you like numbers in your new password? (y/n)");
-    while (critNumbers != "y" || critNumbers != "n"){
+    while (critNumbers != "y" && critNumbers != "n"){
         critNumbers=prompt("Invalid entry.  Would you like numbers in your new password? (y/n)")
        }
     if (critNumbers === "y"){
@@ -53,7 +53,7 @@ function generatePassword(){
 
     //Inclusion of special characters prompt and validation
     var critSpecChars=prompt("Would you like to include special characters such as !, ?, # in your new password? (y/n)");
-    while (critSpecChars != "y" || critSpecChars != "n"){
+    while (critSpecChars != "y" && critSpecChars != "n"){
         critSpecChars=prompt ("Invalid entry. Would you like to include special characters in your new password? (y/n)");
        }       
     if (critSpecChars === "y"){
