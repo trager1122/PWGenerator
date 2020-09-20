@@ -10,51 +10,55 @@ function generatePassword(){
     var possible= "";
     var pwGen = "";
 
-    // Number of Characters Prompt and Criteria Validation
-    var length = parseInt(prompt("What length of characters would you like your new password? (min of 8 and no more than 128)"));
-   
-    if (length < 8 || length > 128){
-        length = prompt("Invalid entry. What length of characters would you like your new password? ( Remember: minimum of 8 and no more than 128)");
-        }   
+    // Number of Characters Prompt and Criteria Validation Function
+    
+    var length = parseInt(prompt ("What length of characters would you like your new password? (min of 8 and no more than 128)"));
+    while (length < 8 || length > 128){
+            length = prompt("Invalid entry. What length of characters would you like your new password? ( Remember: minimum of 8 and no more than 128)");
+        }
     console.log(length);
 
     // Inclusion of lowercase letters prompt and validation
     var critLcLetters= prompt("Would you like lowercase letters in your new password? (y/n)");
+    while (critLcLetters != "y" || critLcLetters != "n"){
+        critLcLetters= prompt("Invalid entry. Would you like lowercase letters in your new password? (y/n)");
+    }
     if (critLcLetters === "y"){
         possible += lcLetters;
-       } else if (critLcLetters != "n"){
-        critLcLetters= prompt ("Invalid entry. Would you like lowercase letters in your new password? (y/n)");
     }
     console.log(critLcLetters);
     console.log(possible);
 
     // Inclusion of capital letters prompt and validation
     var critCapLetters= prompt("Would you like capital letters in your new password? (y/n)");
-    if (critCapLetters === "y"){
-       possible += capLetters;
-      } else if (critCapLetters != "n"){
+    while (critCapLetters != "y" || critCapLetters != "n"){
       critCapLetters= prompt("Invalid entry. Would you like capital letters in your new password? (y/n)");
+    }
+    if (critCapLetters === "y"){
+        possible += capLetters;
     }
     console.log(critCapLetters);
     console.log(possible);
 
     // Inclusion of numbers prompt and validation
     var critNumbers=prompt("Would you like numbers in your new password? (y/n)");
-    if (critNumbers === "y"){
-       possible += numbers;
-       } else if (critNumbers != "n"){
+    while (critNumbers != "y" || critNumbers != "n"){
         critNumbers=prompt("Invalid entry.  Would you like numbers in your new password? (y/n)")
        }
+    if (critNumbers === "y"){
+        possible += numbers;
+    }
     console.log(critCapLetters);
     console.log(possible);
 
     //Inclusion of special characters prompt and validation
     var critSpecChars=prompt("Would you like to include special characters such as !, ?, # in your new password? (y/n)");
-    if (critSpecChars === "y"){
-        possible += specChars;
-    } else if (critSpecChars != "n"){
+    while (critSpecChars != "y" || critSpecChars != "n"){
         critSpecChars=prompt ("Invalid entry. Would you like to include special characters in your new password? (y/n)");
        }       
+    if (critSpecChars === "y"){
+        possible += specChars;
+    }   
     console.log(critSpecChars);
     console.log(possible);
 
