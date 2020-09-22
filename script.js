@@ -12,7 +12,12 @@ function generatePassword(){
 
     // Number of Characters Prompt and Criteria Validation Function
     
-    var length = parseInt(prompt ("What length of characters would you like your new password? (min of 8 and no more than 128)"));
+    var length = prompt ("What length of characters would you like your new password? (min of 8 and no more than 128)");
+    if (length == null){
+        length === "0";
+        }
+    length=== parseInt(length);
+
     while (length < 8 || length > 128){
             length = prompt("Invalid entry. What length of characters would you like your new password? ( Remember: minimum of 8 and no more than 128)");
         }
@@ -52,7 +57,11 @@ function generatePassword(){
     if (critSpecChars === "y"){
         possible += specChars;
     }   
-
+    //Validation that at least one character type has been chosen
+    if (critLcLetters=== "n" && critCapLetters === "n" && critNumbers === "n" && critSpecChars === "n"){
+        alert ("You have chosen no character types to be included in your password so one cannot be generated.  Press Ok to reload generator and start from the beginning.");
+        location.reload();
+    }
     // Password Randomization
     for (var i = 0; i < length; i++){
         pwGen += possible.charAt(Math.floor(Math.random() * possible.length));
@@ -66,8 +75,9 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
