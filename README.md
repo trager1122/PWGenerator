@@ -1,3 +1,7 @@
+Website to randomly generate a passord based upon user-selected character types and length.
+
+Deployed website: https://trager1122.github.io/PWGenerator/
+
 Repository website: https://github.com/trager1122/PWGenerator
 
 Screenshot
